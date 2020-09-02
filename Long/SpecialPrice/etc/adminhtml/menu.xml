@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Long_SpecialPrice::main" title="Long" translate="title" module="Long_SpecialPrice" sortOrder="21" resource="Magento_Catalog::catalog"/>
+        <add id="Long_SpecialPrice::price_manage" title="Advanced Special Price" translate="title" module="Long_SpecialPrice" parent="Long_SpecialPrice::main" sortOrder="10" action="specialprice/index" resource="Magento_Catalog::catalog"/>
+    </menu>
+</config>

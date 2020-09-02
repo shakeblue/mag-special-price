@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="advanced_special_price_listing_data_source" xsi:type="string">AdvancedSpecialPriceCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="AdvancedSpecialPriceCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">advanced_special_price</argument>
+            <argument name="resourceModel" xsi:type="string">\Long\SpecialPrice\Model\ResourceModel\AdvancedSpecialPrice</argument>
+        </arguments>
+    </virtualType>
+    <preference for="Long\SpecialPrice\Api\SpecialPriceRepositoryInterface" type="Long\SpecialPrice\Model\SpecialPriceRepository" />
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="long_special_price_after_get_final_price" type="Long\SpecialPrice\Plugin\FinalPrice"/>
+    </type>
+    <type name="Magento\Framework\Pricing\Render\Amount">
+        <plugin name="long_special_price_after_get_display_amount" type="Long\SpecialPrice\Plugin\DisplayAmount"/>
+    </type>
+</config>
